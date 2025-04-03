@@ -9,7 +9,7 @@ function App() {
       <Topbar name="Lorem Ips" role="Manager" profileImg={userAvatar} />
       <div className="flex flex-1 bg-[#F5F4F4]">
         <Sidebar />
-        <MainContent title="Portfolio" />
+        <MainContent />
       </div>
     </div>
   );

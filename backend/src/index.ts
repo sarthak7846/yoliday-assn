@@ -13,13 +13,51 @@ app.get("/", (req, res) => {
 });
 
 app.get("/projects", async (req, res) => {
-  const skip = req.body.skip;
-  const take = req.body.take;
+  // const skip = req.body.skip;
+  // const take = req.body.take;
+
+  try {
+    const projects = await prisma.projects.findMany();
+
+    res.status(200).json({
+      projects,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/search", async (req, res) => {
+  const query = req.body.query;
+
+  if (!query) {
+    res.status(400).json({
+      message: "Query is invalid",
+    });
+    return;
+  }
 
   try {
     const projects = await prisma.projects.findMany({
-      skip,
-      take,
+      where: {
+        OR: [
+          {
+            title: {
+              contains: query,
+            },
+          },
+          {
+            description: {
+              contains: query,
+            },
+          },
+          {
+            category: {
+              contains: query,
+            },
+          },
+        ],
+      },
     });
 
     res.status(200).json({
@@ -64,8 +102,6 @@ app.post("/add-to-cart", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-
-  res.send("add to cart");
 });
 
 app.post("/remove-from-cart", async (req, res) => {
@@ -81,13 +117,11 @@ app.post("/remove-from-cart", async (req, res) => {
     });
 
     res.status(200).json({
-      message: "Added to cart",
+      message: "Removed from cart",
     });
   } catch (error) {
     console.log(error);
   }
-
-  res.send("add to cart");
 });
 
 app.listen(3000, () => {

@@ -1,4 +1,9 @@
-export const NavbarItem = ({ active, text }) => {
+interface NavbarItemProps {
+  active?: boolean;
+  text: string;
+}
+
+export const NavbarItem = ({ active = false, text }: NavbarItemProps) => {
   return (
     <div
       className={`px-4 py-2 text-sm ${

@@ -1,6 +1,6 @@
 import { NavbarItem } from "./NavbarItem";
 
-export const Navbar = ({ active }) => {
+export const Navbar = () => {
   return (
     <nav className="flex mt-4">
       <NavbarItem text="Project" active={true} />

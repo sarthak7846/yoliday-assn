@@ -1,13 +1,37 @@
+import { ChangeEvent } from "react";
+import { Cross } from "../icons/Cross";
 import searchIcon from "../icons/search.svg";
 
-export const Search = () => {
+interface SearchProps {
+  query: string;
+  onQueryChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  showCross: boolean;
+  onClear: () => void;
+}
+
+export const Search = ({
+  query,
+  onQueryChange,
+  showCross,
+  onClear,
+}: SearchProps) => {
   return (
     <div className="flex relative">
       <input
         type="text"
         placeholder="Search a project"
+        value={query}
+        onChange={onQueryChange}
         className="border border-[#E0E0E0] pl-4 pr-48 py-2 rounded-md text-[14px] font-roboto"
       />
+      {showCross && (
+        <div
+          className="absolute inset-y-2 inset-x-[18rem] right-0 cursor-pointer"
+          onClick={onClear}
+        >
+          <Cross />
+        </div>
+      )}
       <img
         className="absolute inset-y-0 right-0 mr-1.5 mt-[5px] "
         src={searchIcon}

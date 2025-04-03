@@ -1,4 +1,10 @@
-export const SidebarItem = ({ icon, text, active }) => {
+interface SidebarItemProps {
+  icon: string;
+  text: string;
+  active?: boolean;
+}
+
+export const SidebarItem = ({ icon, text, active }: SidebarItemProps) => {
   return (
     <div
       className={`font-roboto text-white flex px-7 py-2.5 my-3 rounded-md ${

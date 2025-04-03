@@ -39,7 +39,7 @@ export const Cart = () => {
         <CartIcon />
       </PopoverTrigger>
       <PopoverContent>
-        {cartItems.length > 0 ? (
+        {cartItems && cartItems.length > 0 ? (
           cartItems.map((cartItem) => (
             <CartItem
               title={cartItem.title}

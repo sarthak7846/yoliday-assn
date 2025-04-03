@@ -95,7 +95,7 @@ export const MainContent = () => {
       <div className="overflow-y-auto">
         {loading ? (
           <Spinner />
-        ) : projects.length > 0 ? (
+        ) : projects && projects.length > 0 ? (
           projects.map(
             ({ id, author, category, description, image_url, title }) => (
               <ProjectItem

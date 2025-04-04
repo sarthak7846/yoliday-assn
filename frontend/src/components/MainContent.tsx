@@ -84,7 +84,10 @@ export const MainContent = () => {
           <Filter />
           <Search
             query={query}
-            onQueryChange={(e) => setQuery(e.target.value)}
+            onQueryChange={(e) => {
+              if (e.target.value === "") setShowCross(false);
+              setQuery(e.target.value);
+            }}
             showCross={showCross}
             onClear={() => {
               setQuery("");

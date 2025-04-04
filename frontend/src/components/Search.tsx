@@ -26,7 +26,7 @@ export const Search = ({
       />
       {showCross && (
         <div
-          className="absolute inset-y-2 inset-x-[18rem] right-0 cursor-pointer"
+          className="absolute inset-y-2 md:inset-x-[18rem] right-10 cursor-pointer"
           onClick={onClear}
         >
           <Cross />

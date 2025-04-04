@@ -7,9 +7,9 @@ export const Spinner = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
-      className="flex justify-center mt-32 flex-col items-center"
+      className="flex justify-center my-20 flex-col items-center"
     >
-      <span className="text-lg mb-4">
+      <span className="md:text-lg text-sm mb-4 text-center">
         Loading projects (Please wait for at least 50 sec)
       </span>
       <svg

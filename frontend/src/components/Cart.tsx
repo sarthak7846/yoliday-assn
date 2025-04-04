@@ -1,4 +1,4 @@
-import { CartIcon } from "@/icons/CartIcon";
+import cartIcon from "@/icons/cartMobile.svg";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -36,7 +36,7 @@ export const Cart = () => {
   return (
     <Popover>
       <PopoverTrigger onClick={fetchCartItems}>
-        <CartIcon />
+        <img src={cartIcon} width={15} className="mr-5" />
       </PopoverTrigger>
       <PopoverContent>
         {cartItems && cartItems.length > 0 ? (

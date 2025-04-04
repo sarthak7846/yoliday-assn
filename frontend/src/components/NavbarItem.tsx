@@ -6,10 +6,10 @@ interface NavbarItemProps {
 export const NavbarItem = ({ active = false, text }: NavbarItemProps) => {
   return (
     <div
-      className={`px-4 py-2 text-sm ${
+      className={`md:px-4 xs:px-6 px-3 py-2 text-sm ${
         active
-          ? "text-[#DF5532] font-semibold border-b-2"
-          : "border-b border-[#E0E0E0]"
+          ? "text-[#DF5532] font-semibold border-b-2 border-b-[#DF5532]"
+          : ""
       } hover:bg-slate-100 cursor-pointer`}
     >
       {text}

@@ -7,7 +7,7 @@ import logo from "../icons/logo.svg";
 
 export const Sidebar = () => {
   return (
-    <div className="h-screen w-72 fixed top-0 left-0 bg-[#DF5532] ">
+    <div className="h-screen w-72 fixed top-0 left-0 bg-[#DF5532] hidden md:block">
       <div className="flex items-center font-roboto text-white mt-6 ml-2 px-3">
         <img src={logo} />
         <span className="ml-3">LOGO</span>

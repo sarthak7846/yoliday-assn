@@ -6,6 +6,7 @@
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
+  --breakpoint-xs: 27rem;
 }
 
 :root {

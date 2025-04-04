@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Filter } from "./Filter";
 import { Navbar } from "./Navbar";
-import { ProjectItem } from "./ProjectItem";
 import { Search } from "./Search";
 import { BASE_URL } from "../config";
 import axios from "axios";
 import { Project } from "../types/project";
-import { Spinner } from "../icons/Spinner";
+import { Projects } from "./Projects";
 
 export const MainContent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -74,11 +73,14 @@ export const MainContent = () => {
   }, [debouncedQuery]);
 
   return (
-    <div className="bg-white flex-1 mx-8 ml-[20rem] my-6 rounded-2xl shadow-md flex flex-col py-6 px-5 h-[80vh]">
-      <span className="font-roboto text-xl font-bold">Portfolio</span>
-      <div className="flex justify-between items-center">
+    <div className="bg-white md:flex-1  md:ml-[20rem] md:mx-8 md:my-6 md:rounded-2xl md:shadow-md flex flex-col md:py-6 md:px-5 h-[80vh]">
+      <span className="font-roboto text-xl font-bold hidden md:block">
+        Portfolio
+      </span>
+
+      <div className="md:flex md:justify-between  items-center">
         <Navbar />
-        <div className="flex">
+        <div className="flex justify-center">
           <Filter />
           <Search
             query={query}
@@ -92,29 +94,7 @@ export const MainContent = () => {
         </div>
       </div>
 
-      <div className="overflow-y-auto">
-        {loading ? (
-          <Spinner />
-        ) : projects && projects.length > 0 ? (
-          projects.map(
-            ({ id, author, category, description, image_url, title }) => (
-              <ProjectItem
-                id={id}
-                author={author}
-                category={category}
-                description={description}
-                image_url={image_url}
-                title={title}
-                key={id}
-              />
-            )
-          )
-        ) : (
-          <div className="flex justify-center items-center h-72 font-roboto">
-            No projects found
-          </div>
-        )}
-      </div>
+      <Projects loading={loading} projects={projects} />
     </div>
   );
 };

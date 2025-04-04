@@ -9,7 +9,9 @@ export const Spinner = () => {
       exit={{ opacity: 0 }}
       className="flex justify-center mt-32 flex-col items-center"
     >
-      <span className="text-lg mb-4">Loading projects</span>
+      <span className="text-lg mb-4">
+        Loading projects (Please wait for at least 50 sec)
+      </span>
       <svg
         aria-hidden="true"
         className="inline w-8 h-8 text-gray-200 animate-spin dark:text-[#DF5532] fill-[#DF5532] dark:fill-gray-300"
